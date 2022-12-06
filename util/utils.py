@@ -10,7 +10,9 @@ def open_page(url):
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
     options.add_argument('--headless')
-    driver = webdriver.Chrome("chromedriver", chrome_options=options)
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome(chrome_options=options)
 
     driver.get("http://www.facebook.com")
     sleep(5)

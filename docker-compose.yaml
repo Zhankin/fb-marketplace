@@ -1,0 +1,38 @@
+version: '3.9'
+
+#Create .env file in root folder
+#export FB_EMAIL="example.com"
+#export FB_PASSWORD="strongpass"
+#export TOKEN="ABC123"
+#export CHAT_ID=111111
+#export DB_USER="user"
+#export DB_PASSWORD="pass"
+#export DB_HOST="mysql_db"
+#export DB_PORT=3306
+#export DB="fb"
+#export QUERY_LIST='["your fb query"]'
+
+services:
+  py_cron:
+    image: py_cron:v1.0
+    environment:
+      - FB_EMAIL=${FB_EMAIL}
+      - FB_PASSWORD=${FB_PASSWORD}
+      - TOKEN=${TOKEN}
+      - CHAT_ID=${CHAT_ID}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB=${DB}
+      - QUERY_LIST=${QUERY_LIST}
+    links:
+      - "mysql:mysql_db"
+  mysql:
+    image: mysql:8
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB}
+
