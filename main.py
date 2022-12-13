@@ -48,7 +48,7 @@ def main():
             df_final.rename(
                 columns={'ad_price_x': 'ad_price', 'ad_name_x': 'ad_name', 'ad_image_link_x': 'ad_image_link'},
                 inplace=True)
-            tg_message = "FB ads = {}, new ads = {}".format(len(df.index), len(df_final.index))
+            tg_message = "Query= {}, FB ads = {}, new ads = {}".format(query, len(df.index), len(df_final.index))
             send_message_tg(tg_message)
             for index, row in df_final.iterrows():
                 text = row['ad_price'] + '\n' + row['ad_name'] + '\n' + row['ad_link']

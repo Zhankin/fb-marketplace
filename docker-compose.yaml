@@ -26,6 +26,7 @@ services:
       - DB_PORT=${DB_PORT}
       - DB=${DB}
       - QUERY_LIST=${QUERY_LIST}
+      - TZ=${TZ}
     links:
       - "mysql:mysql_db"
   mysql:
