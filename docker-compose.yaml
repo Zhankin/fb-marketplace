@@ -10,11 +10,12 @@ version: '3.9'
 #export DB_HOST="mysql_db"
 #export DB_PORT=3306
 #export DB="fb"
-#export QUERY_LIST='["your fb query"]'
+#export QUERY_LIST='["your fb query 1", "query2"]'
+#export TZ=America/Los_Angeles
 
 services:
   py_cron:
-    image: py_cron:v1.0
+    image: zhankin/fb-marketplace
     environment:
       - FB_EMAIL=${FB_EMAIL}
       - FB_PASSWORD=${FB_PASSWORD}
