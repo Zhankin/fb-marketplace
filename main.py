@@ -60,7 +60,7 @@ def main():
                     send_tg(text, ad.image)
                 print('Ads to be inserted to db = {}'.format(len(ads_new)))
                 session.bulk_save_objects(ads_new)
-
+                session.commit()
             except Exception:
                 traceback.print_exc()
     finally:
