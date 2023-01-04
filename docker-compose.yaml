@@ -28,6 +28,10 @@ services:
       - DB=${DB}
       - QUERY_LIST=${QUERY_LIST}
       - TZ=${TZ}
+      - HOST=${HOST}
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+      - DATABASE=${DATABASE}
     links:
       - "mysql:mysql_db"
   mysql:

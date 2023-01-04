@@ -34,14 +34,17 @@ def main():
             ads_from_fb = []
             for p in area_ads_div:
                 if check_if_exist(p):
-                    text_div = get_text_div(p)
+		    try:
+                    	text_div = get_text_div(p)
 
-                    image_link = get_image_div(p)
-                    link = get_link(text_div[0])
-                    name = text_div[1].get_text()
-                    price = get_price(text_div)
-                    ad = Ad(query, name, price, image_link, link)
-                    ads_from_fb.append(ad)
+                    	image_link = get_image_div(p)
+                    	link = get_link(text_div[0])
+                    	name = text_div[1].get_text()
+                    	price = get_price(text_div)
+                    	ad = Ad(query, name, price, image_link, link)
+                    	ads_from_fb.append(ad)
+		    except Exception:
+		   	traceback.print_exc()
 
             print('Ads from FB = {}'.format(len(ads_from_fb)))
             try:
